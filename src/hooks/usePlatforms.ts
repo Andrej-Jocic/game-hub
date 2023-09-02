@@ -1,8 +1,9 @@
 import useData from './useData';
 
-type Platform = {
+export type Platform = {
   id: number;
   name: string;
+  slug: string;
 };
 
 function usePlatforms() {

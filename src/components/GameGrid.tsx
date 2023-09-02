@@ -3,15 +3,18 @@ import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import GameCardSkeleton from './GameCardSkeleton';
 import { Genre } from '../hooks/useGenres';
+import { Platform } from '../hooks/usePlatforms';
 
 type Props = {
   selectedGenre: Genre | null;
+  selectedPlatform: Platform | null;
 };
 
-function GameGrid({ selectedGenre }: Props) {
-  const { data, error, loading } = useGames(selectedGenre);
+function GameGrid({ selectedGenre, selectedPlatform }: Props) {
+  const { data, error, loading } = useGames(selectedGenre, selectedPlatform);
   // create array with integers from 1 to 15
   const skeletons = Array.from({ length: 15 }, (_, i) => i + 1);
+
   return (
     <>
       {error && <Text>{error}</Text>}
