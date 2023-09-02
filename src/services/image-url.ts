@@ -5,7 +5,6 @@
 import noImage from '../assets/no-image-placeholder.webp';
 
 function getCroppedImageUrl(url: string) {
-  // TODO: add an 'No cover' image if game doesn't have one
   if (!url) return noImage;
 
   const target = 'media/';
