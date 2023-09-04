@@ -7,7 +7,7 @@ export type Genre = {
 };
 
 function useGenres() {
-  return { data: genres, isLoading: false, error: null };
+  return { data: genres, loading: false, error: null };
 }
 
 export default useGenres;
