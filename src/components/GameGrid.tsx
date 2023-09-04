@@ -10,15 +10,15 @@ type Props = {
 
 function GameGrid({ gameQuery }: Props) {
   const { data, error, loading } = useGames(gameQuery);
-  // create array with integers from 1 to 15
-  const skeletons = Array.from({ length: 15 }, (_, i) => i + 1);
+  // create array with integers from 1 to 12
+  const skeletons = Array.from({ length: 12 }, (_, i) => i + 1);
 
   return (
     <>
       {error && <Text>{error}</Text>}
       <SimpleGrid
-        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
-        spacing={3}
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+        spacing={6}
         padding="10px"
       >
         {loading &&

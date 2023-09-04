@@ -5,7 +5,7 @@ function GameCardSkeleton() {
   return (
     <GameCardContainer>
       <Card>
-        <Skeleton height="200px" />
+        <Skeleton height="300px" />
         <CardBody>
           <SkeletonText />
         </CardBody>
