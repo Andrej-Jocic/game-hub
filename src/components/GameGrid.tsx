@@ -9,11 +9,11 @@ type Props = {
 };
 
 function GameGrid({ gameQuery }: Props) {
-  const { data, error, loading } = useGames(gameQuery);
+  const { data, error, isLoading } = useGames(gameQuery);
   // create array with integers from 1 to 12
   const skeletons = Array.from({ length: 12 }, (_, i) => i + 1);
 
-  if (error) return <Text>{error}</Text>;
+  if (error) return <Text>{error.message}</Text>;
 
   return (
     <SimpleGrid
@@ -21,9 +21,9 @@ function GameGrid({ gameQuery }: Props) {
       spacing={6}
       padding="10px"
     >
-      {loading &&
+      {isLoading &&
         skeletons.map((skeleton) => <GameCardSkeleton key={skeleton} />)}
-      {data.map((game) => (
+      {data?.map((game) => (
         <GameCard key={game.id} game={game} />
       ))}
     </SimpleGrid>
