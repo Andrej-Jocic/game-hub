@@ -11,11 +11,11 @@ export type Genre = {
 };
 
 function useGenres() {
-  return useQuery<Genre[], Error>({
+  return useQuery({
     queryKey: ['genres'],
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000, // 24h
-    initialData: genres,
+    initialData: { count: genres.length, results: genres, next: '' },
   });
 }
 

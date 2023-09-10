@@ -11,15 +11,11 @@ export type Platform = {
 };
 
 function usePlatforms() {
-  return useQuery<Platform[], Error>({
+  return useQuery({
     queryKey: ['platforms'],
     queryFn: apiClient.getAll,
     staleTime: 24 * 60 * 60 * 1000, // 24h
-    initialData: platforms.map((platform, i) => ({
-      id: i,
-      name: platform,
-      slug: platform.toLowerCase(),
-    })),
+    initialData: { count: platforms.length, results: platforms, next: '' },
   });
 }
 
