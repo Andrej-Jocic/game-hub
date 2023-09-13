@@ -2,17 +2,12 @@ import { Box, SimpleGrid, Spinner, Text } from '@chakra-ui/react';
 import useGames from '../hooks/useGames';
 import GameCard from './GameCard';
 import GameCardSkeleton from './GameCardSkeleton';
-import { GameQuery } from '../App';
 import { Fragment } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
-type Props = {
-  gameQuery: GameQuery;
-};
+function GameGrid() {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
 
-function GameGrid({ gameQuery }: Props) {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } =
-    useGames(gameQuery);
   // create array with integers from 1 to 12
   const skeletons = Array.from({ length: 12 }, (_, i) => i + 1);
 
